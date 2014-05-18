@@ -9,6 +9,7 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'idea'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -19,5 +20,11 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '17.0'
+
     compile 'org.eclipse.jetty:jetty-server:9.2.0.M1'
+    compile 'org.eclipse.jetty:jetty-servlet:9.2.0.M1'
+    compile 'com.sun.jersey:jersey-servlet:1.13'
+    compile 'org.projectlombok:lombok:1.12.6'
+    compile 'com.google.code.gson:gson:2.2.4'
 }
