@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.Collection;
 
 @Path("/{id}")
@@ -19,13 +18,23 @@ public class Stains
 	{
 		Collection<String> stains = Main.worldStainMap.get(id);
 
-		StringBuilder builder = new StringBuilder("{");
+		StringBuilder builder = new StringBuilder("[");
+		boolean first = true;
 		for (String stain : stains)
 		{
+
+			if (!first)
+			{
+				builder.append(",");
+			}
+			else
+			{
+				first = false;
+			}
 			builder.append(stain);
-			builder.append(",");
+
 		}
-		builder.append("}");
+		builder.append("]");
 		return builder.toString();
 	}
 
